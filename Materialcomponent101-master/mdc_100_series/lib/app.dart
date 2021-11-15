@@ -11,15 +11,25 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
+import 'colors.dart';
+import 'supplemental/cut_corners_border.dart';
+import 'backdrop.dart';
+import 'category_menu_page.dart';
+import 'model/product.dart'; // New code
+// TODO: Convert ShrineApp to stateful widget (104)
 import 'package:flutter/material.dart';
 
 import 'home.dart';
 import 'login.dart';
-
-// TODO: Convert ShrineApp to stateful widget (104)
 class ShrineApp extends StatelessWidget {
   const ShrineApp({Key? key}) : super(key: key);
+class _ShrineAppState extends State<ShrineApp> {
+  Category _currentCategory = Category.all;
+void _onCategoryTap(Category category) {
+    setState(() {
+      _currentCategory = category;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
